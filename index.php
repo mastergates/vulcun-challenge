@@ -4,7 +4,8 @@ ini_set('display_startup_errors',1);
 error_reporting(-1);
 
 require 'vendor/autoload.php';
-require '../config/db_config.php'; //$pdo created here as long as database connection is live
+require '../config/db_config.php';	//$pdo created here as long as database connection is live
+					//keep all config files outside of the web directory by default
 
 $app = new \Slim\Slim([
 	'templates.path' => './views'
