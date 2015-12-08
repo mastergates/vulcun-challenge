@@ -25,6 +25,7 @@ $app->post('/stats', function () use ($app) {
 	}
 });
 
+//little easter egg for anyone looking 'teemo' stats or trying to challenge teemo
 $app->get('/stats/teemo', function () {
 	echo "<center>";
 		echo "<br><br><br><br>";
