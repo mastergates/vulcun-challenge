@@ -12,10 +12,12 @@ $app = new \Slim\Slim([
 
 $client = new Predis\Client();
 
+//default splash page route
 $app->get('/', function () use ($app) {
 	$app->render('splash.view.php');
 });
 
+//catch POST form data from splash page and redirect user
 $app->post('/stats', function () use ($app) {
 	if (!empty($_POST['name'])) {
 		$url = "/stats/".$_POST['name'];
@@ -36,6 +38,7 @@ $app->get('/stats/teemo', function () {
 	echo "</center>";
 });
 
+//Character Stats Route
 $app->get('/stats/:name', function ($name) use ($app, $pdo, $client) {
 	require 'models/character.model.php';
 	
@@ -58,6 +61,7 @@ $app->get('/stats/:name', function ($name) use ($app, $pdo, $client) {
 	]);
 });
 
+//Character Challenge Route
 $app->get('/challenge/:name1/:name2', function ($name1, $name2) use ($app, $pdo) {
 	require 'models/character.model.php';
 	
